@@ -3,7 +3,7 @@ NewRelic
 
 [![Latest Stable Version](https://poser.pugx.org/sobanvuex/php-newrelic/version.png)](https://packagist.org/packages/sobanvuex/php-newrelic) 
 [![Composer Downloads](https://poser.pugx.org/sobanvuex/php-newrelic/d/total.png)](https://packagist.org/packages/sobanvuex/php-newrelic) 
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/SobanVuex/php-newrelic/badges/quality-score.png?s=97ba947240ceee2167a551e596e3d021d760d014)](https://scrutinizer-ci.com/g/SobanVuex/php-newrelic/)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/SobanVuex/php-newrelic/badges/quality-score.png?s=60d5ad67e11392a438abd053311d24bbf06ecf79)](https://scrutinizer-ci.com/g/SobanVuex/php-newrelic/) 
 [![License](https://poser.pugx.org/sobanvuex/php-newrelic/license.png)](https://packagist.org/packages/sobanvuex/php-newrelic)
 
 Requirements
