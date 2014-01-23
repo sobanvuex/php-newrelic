@@ -1,27 +1,36 @@
 <?php
 
-namespace NewRelic\Agent;
+/**
+ * PHP NewRelic library.
+ *
+ * @copyright 2014 Alex Soban. See LICENSE for information.
+ * @license   http://opensource.org/licenses/MIT
+ * @author    Alex Soban <me@soban.co>
+ */
+
+namespace NewRelic;
 
 /**
  * Wrapper for the New Relic Agent API
  *
- * @method boolean setAppname(string $name, string $license = 'newrelic.license', boolean $xmit = false)
- * @method void noticeError(string|null $message, Exception|string $exception)
- * @method void nameTransaction(string $name)
- * @method void endOfTransaction()
- * @method void endTransaction(boolean $ignore = false)
- * @method void startTransaction(string $appname, string $license = 'newrelic.license')
- * @method void ignoreTransaction()
- * @method void ignoreApdex()
- * @method void backgroundJob(boolean $flag = true)
- * @method void captureParams(string $enable = 'on')
- * @method void customMetric(string $metric, float $value)
- * @method void addCustomParameter(string $parameter, string $value)
- * @method void addCustomTracer(string $callable)
- * @method string getBrowserTimingHeader(boolean $flag = true)
- * @method string getBrowserTimingFooter(boolean $flag = true)
- * @method void disableAutorum()
- * @method void setUserAttributes(string $user, string $account, string $product)
+ * @method  boolean setAppname(string $name, string $license = 'newrelic.license', boolean $xmit = false)
+ * @method  void    noticeError(string|null $message, Exception|string $exception)
+ * @method  void    nameTransaction(string $name)
+ * @method  void    endOfTransaction()
+ * @method  void    endTransaction(boolean $ignore = false)
+ * @method  void    startTransaction(string $appname, string $license = 'newrelic.license')
+ * @method  void    ignoreTransaction()
+ * @method  void    ignoreApdex()
+ * @method  void    backgroundJob(boolean $flag = true)
+ * @method  void    captureParams(string $enable = 'on')
+ * @method  void    customMetric(string $metric, float $value)
+ * @method  void    addCustomParameter(string $parameter, string $value)
+ * @method  void    addCustomTracer(string $callable)
+ * @method  string  getBrowserTimingHeader(boolean $flag = true)
+ * @method  string  getBrowserTimingFooter(boolean $flag = true)
+ * @method  void    disableAutorum()
+ * @method  void    setUserAttributes(string $user, string $account, string $product)
+ * @package NewRelic
  */
 class NewRelicAgent
 {
@@ -41,7 +50,7 @@ class NewRelicAgent
     protected $_loaded = false;
 
     /**
-     * Construct a new NewRelicAgent object. Optionally set the application name
+     * Construct a new `NewRelicAgent` object. Optionally set the application name
      * from the configuration data `name` parameter
      *
      * @param array $config Configuration data
@@ -93,7 +102,7 @@ class NewRelicAgent
     }
 
     /**
-     * Returns an instance of NewRelicAgent. Used when called staticaly
+     * Returns an instance of `NewRelicAgent`. Used when called staticaly
      *
      * @return NewRelicAgent
      */
