@@ -1,7 +1,7 @@
 {
     "name": "sobanvuex/php-newrelic",
     "description": "PHP SDK for New Relic Agent and REST APIs",
-    "keywords": ["newrelic", "monitoring"],
+    "keywords": ["newrelic", "monitoring", "api"],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -17,7 +17,8 @@
         }
     },
     "require": {
-        "php": ">=5.3"
+        "php": ">=5.3",
+        "guzzle/guzzle": "~3.8"
     },
     "suggest": {
         "ext-newrelic": "Get the New Relic PHP extension from http://newrelic.com"
