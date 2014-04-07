@@ -1,5 +1,5 @@
-NewRelic
-========
+PHP NewRelic
+============
 
 | Quality / Metrics | Releases | Downloads | License |
 | ----------------- | -------- | --------- | ------- |
