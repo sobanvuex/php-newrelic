@@ -9,7 +9,6 @@ Requirements
 ------------
 
 - PHP >=5.3
-- cURL extension for the REST API
 - newrelic extension for the Agent API
 
 Installation
@@ -18,7 +17,7 @@ Installation
 Using Composer's command line interface:
 
 ```bash
-php composer.phar require sobanvuex/php-newrelic:1.*
+php composer.phar require sobanvuex/php-newrelic:~1.0
 ```
 
 - - -
@@ -27,7 +26,7 @@ Manually adding the requirements to `composer.json`:
 
 ```js
 "require": {
-    "sobanvuex/php-newrelic": "1.*"
+    "sobanvuex/php-newrelic": "~1.0"
 }
 ```
 
