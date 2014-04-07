@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1396885280">
-  <project timestamp="1396885280">
+<coverage generated="1396886627">
+  <project timestamp="1396886627">
     <package name="NewRelic">
       <file name="/home/asoban/Documents/php-newrelic/src/NewRelic/NewRelic.php">
         <class name="NewRelic" namespace="NewRelic" fullPackage="NewRelic" package="NewRelic">
