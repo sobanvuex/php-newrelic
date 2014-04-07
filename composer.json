@@ -16,6 +16,9 @@
             "NewRelic\\": "src/NewRelic/"
         }
     },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.34"
+    },
     "require": {
         "php": ">=5.3.3"
     },
