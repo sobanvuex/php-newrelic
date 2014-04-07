@@ -18,7 +18,7 @@ namespace NewRelic;
 class Version
 {
 
-    const VERSION = '1.0.1';
+    const VERSION = '1.0.2';
 
     /**
      * @return string Indicate current SDK version.
