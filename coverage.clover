@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1396885280">
+  <project timestamp="1396885280">
+    <package name="NewRelic">
+      <file name="/home/asoban/Documents/php-newrelic/src/NewRelic/NewRelic.php">
+        <class name="NewRelic" namespace="NewRelic" fullPackage="NewRelic" package="NewRelic">
+          <metrics methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="25" coveredelements="25"/>
+        </class>
+        <line num="0" type="stmt" count="3"/>
+        <line num="45" type="method" name="__construct" crap="3" count="3"/>
+        <line num="47" type="stmt" count="3"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="50" type="stmt" count="3"/>
+        <line num="58" type="method" name="__call" crap="3" count="4"/>
+        <line num="60" type="stmt" count="4"/>
+        <line num="61" type="stmt" count="3"/>
+        <line num="64" type="stmt" count="1"/>
+        <line num="73" type="method" name="__callStatic" crap="1" count="3"/>
+        <line num="75" type="stmt" count="3"/>
+        <line num="84" type="method" name="formatMethod" crap="1" count="4"/>
+        <line num="86" type="stmt" count="4"/>
+        <line num="95" type="method" name="getInstance" crap="2" count="4"/>
+        <line num="97" type="stmt" count="4"/>
+        <line num="99" type="stmt" count="4"/>
+        <line num="100" type="stmt" count="1"/>
+        <line num="101" type="stmt" count="1"/>
+        <line num="103" type="stmt" count="4"/>
+        <line num="112" type="method" name="isLoaded" crap="2" count="6"/>
+        <line num="114" type="stmt" count="6"/>
+        <line num="116" type="stmt" count="6"/>
+        <line num="117" type="stmt" count="1"/>
+        <line num="118" type="stmt" count="1"/>
+        <line num="120" type="stmt" count="6"/>
+        <line num="124" type="stmt" count="1"/>
+        <metrics loc="123" ncloc="57" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="25" coveredelements="25"/>
+      </file>
+      <file name="/home/asoban/Documents/php-newrelic/src/NewRelic/NewRelicAgent.php">
+        <class name="NewRelicAgent" namespace="NewRelic" fullPackage="NewRelic" package="NewRelic">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <line num="21" type="stmt" count="1"/>
+        <metrics loc="20" ncloc="9" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/home/asoban/Documents/php-newrelic/src/NewRelic/Version.php">
+        <class name="Version" namespace="NewRelic" fullPackage="NewRelic" package="NewRelic">
+          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+        </class>
+        <line num="26" type="method" name="getVersion" crap="1" count="1"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="32" type="stmt" count="1"/>
+        <metrics loc="31" ncloc="16" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      </file>
+    </package>
+    <metrics files="3" loc="174" ncloc="82" classes="3" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="20" elements="27" coveredelements="27"/>
+  </project>
+</coverage>

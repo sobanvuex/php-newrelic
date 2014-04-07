@@ -1,7 +1,7 @@
-all: clean
+all: test
+
+coverage:
+	vendor/bin/phpunit --coverage-clover coverage.clover
 
 test:
-	vendor/bin/phpunit --colors --coverage-clover=build/coverage.clover
-
-clean:
-	rm -rf build/*
+	vendor/bin/phpunit --colors --verbose
