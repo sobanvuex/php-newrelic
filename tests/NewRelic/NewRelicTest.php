@@ -10,9 +10,7 @@ class NewRelicTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         if (!extension_loaded('newrelic')) {
-            $this->markTestSkipped(
-                'The NewRelic extension is not available.'
-            );
+            $this->markTestSkipped('The NewRelic extension is not available.');
         }
     }
 
