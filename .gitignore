@@ -1,5 +1,4 @@
 /vendor/
 composer.phar
-ocular.phar
 composer.lock
-
+ocular.phar

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1396886627">
-  <project timestamp="1396886627">
+<coverage generated="1396896321">
+  <project timestamp="1396896321">
     <package name="NewRelic">
       <file name="/home/asoban/Documents/php-newrelic/src/NewRelic/NewRelic.php">
         <class name="NewRelic" namespace="NewRelic" fullPackage="NewRelic" package="NewRelic">
           <metrics methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="25" coveredelements="25"/>
         </class>
-        <line num="0" type="stmt" count="3"/>
         <line num="45" type="method" name="__construct" crap="3" count="3"/>
         <line num="47" type="stmt" count="3"/>
         <line num="48" type="stmt" count="1"/>
@@ -32,15 +31,7 @@
         <line num="117" type="stmt" count="1"/>
         <line num="118" type="stmt" count="1"/>
         <line num="120" type="stmt" count="6"/>
-        <line num="124" type="stmt" count="1"/>
         <metrics loc="123" ncloc="57" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="25" coveredelements="25"/>
-      </file>
-      <file name="/home/asoban/Documents/php-newrelic/src/NewRelic/NewRelicAgent.php">
-        <class name="NewRelicAgent" namespace="NewRelic" fullPackage="NewRelic" package="NewRelic">
-          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-        </class>
-        <line num="21" type="stmt" count="1"/>
-        <metrics loc="20" ncloc="9" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
       <file name="/home/asoban/Documents/php-newrelic/src/NewRelic/Version.php">
         <class name="Version" namespace="NewRelic" fullPackage="NewRelic" package="NewRelic">
@@ -48,10 +39,9 @@
         </class>
         <line num="26" type="method" name="getVersion" crap="1" count="1"/>
         <line num="28" type="stmt" count="1"/>
-        <line num="32" type="stmt" count="1"/>
         <metrics loc="31" ncloc="16" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
       </file>
     </package>
-    <metrics files="3" loc="174" ncloc="82" classes="3" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="20" elements="27" coveredelements="27"/>
+    <metrics files="2" loc="154" ncloc="73" classes="2" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="20" elements="27" coveredelements="27"/>
   </project>
 </coverage>
