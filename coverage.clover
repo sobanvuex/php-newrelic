@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1396896321">
-  <project timestamp="1396896321">
+<coverage generated="1397223183">
+  <project timestamp="1397223183">
     <package name="NewRelic">
       <file name="/home/asoban/Documents/php-newrelic/src/NewRelic/NewRelic.php">
         <class name="NewRelic" namespace="NewRelic" fullPackage="NewRelic" package="NewRelic">
@@ -15,16 +15,16 @@
         <line num="60" type="stmt" count="4"/>
         <line num="61" type="stmt" count="3"/>
         <line num="64" type="stmt" count="1"/>
-        <line num="73" type="method" name="__callStatic" crap="1" count="3"/>
-        <line num="75" type="stmt" count="3"/>
+        <line num="73" type="method" name="__callStatic" crap="1" count="2"/>
+        <line num="75" type="stmt" count="2"/>
         <line num="84" type="method" name="formatMethod" crap="1" count="4"/>
         <line num="86" type="stmt" count="4"/>
-        <line num="95" type="method" name="getInstance" crap="2" count="4"/>
-        <line num="97" type="stmt" count="4"/>
-        <line num="99" type="stmt" count="4"/>
+        <line num="95" type="method" name="getInstance" crap="2" count="3"/>
+        <line num="97" type="stmt" count="3"/>
+        <line num="99" type="stmt" count="3"/>
         <line num="100" type="stmt" count="1"/>
         <line num="101" type="stmt" count="1"/>
-        <line num="103" type="stmt" count="4"/>
+        <line num="103" type="stmt" count="3"/>
         <line num="112" type="method" name="isLoaded" crap="2" count="6"/>
         <line num="114" type="stmt" count="6"/>
         <line num="116" type="stmt" count="6"/>
