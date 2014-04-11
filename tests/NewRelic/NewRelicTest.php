@@ -42,7 +42,7 @@ class NewRelicTest extends \PHPUnit_Framework_TestCase
     {
         $newRelic = new NewRelic;
         $prefix = 'window.NREUM';
-        $rumHeader = NewRelic::getBrowserTimingHeader(false);
+        $rumHeader = $newRelic->getBrowserTimingHeader(false);
         $this->assertStringStartsWith($prefix, $rumHeader);
     }
 
