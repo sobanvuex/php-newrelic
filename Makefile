@@ -4,7 +4,7 @@ before:
 	composer install --dev
 
 after:
-	wget https://scrutinizer-ci.com/ocular.phar
+	wget https://scrutinizer-ci.com/ocular.phar -O ocular.phar
 	php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
 coverage:
