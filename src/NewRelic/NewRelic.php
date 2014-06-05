@@ -113,7 +113,7 @@ class NewRelic
     {
         static $loaded = null;
 
-        if (!$loaded) {
+        if ($loaded === null) {
             $loaded = extension_loaded('newrelic');
         }
 
