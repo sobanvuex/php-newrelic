@@ -17,7 +17,7 @@ Installation
 Using Composer's command line interface:
 
 ```bash
-php composer.phar require sobanvuex/php-newrelic:~1.0
+php composer.phar require sobanvuex/php-newrelic:1.*
 ```
 
 - - -
