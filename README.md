@@ -26,7 +26,7 @@ Manually adding the requirements to `composer.json`:
 
 ```js
 "require": {
-    "sobanvuex/php-newrelic": "~1.0"
+    "sobanvuex/php-newrelic": "1.*"
 }
 ```
 
