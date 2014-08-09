@@ -2,8 +2,6 @@
 
 namespace NewRelic;
 
-use NewRelic\Version;
-
 class VersionTest extends \PHPUnit_Framework_TestCase
 {
 
