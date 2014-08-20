@@ -38,6 +38,13 @@ class NewRelicTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\\NewRelic\\NewRelic', $newRelic);
     }
 
+    public function testGetInstanceReturnsSameInstance()
+    {
+        $newRelic = NewRelic::getInstance();
+        $newRelic2 = NewRelic::getInstance();
+        $this->assertSame($newRelic, $newRelic2);
+    }
+
     public function testCall()
     {
         $newRelic = new NewRelic;
