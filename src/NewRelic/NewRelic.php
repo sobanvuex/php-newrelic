@@ -96,7 +96,7 @@ class NewRelic
     {
         static $instance = null;
 
-        if (!$instance === null) {
+        if ($instance === null) {
             $instance = new static();
         }
 
