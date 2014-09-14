@@ -39,8 +39,8 @@ class NewRelic
      * Construct a new `NewRelic` object. Optionally set the application name
      * from the configuration data `name` parameter
      *
-     * @param  array   $config Configuration data
-     * @return \static
+     * @param  array    $config Configuration data
+     * @return NewRelic
      */
     public function __construct(array $config = array())
     {
@@ -52,8 +52,9 @@ class NewRelic
     /**
      * Magic method used to call the New Relic Agent API
      *
-     * @param string $method    Name of the command to call
-     * @param array  $arguments Arguments to pass to the command
+     * @param  string      $method    Name of the command to call
+     * @param  array       $arguments Arguments to pass to the command
+     * @return mixed|false
      */
     public function __call($method, $arguments)
     {
@@ -67,8 +68,9 @@ class NewRelic
     /**
      * Static magic method wrapper
      *
-     * @param string $method    Name of the command to call
-     * @param array  $arguments Arguments to pass to the command
+     * @param  string      $method    Name of the command to call
+     * @param  array       $arguments Arguments to pass to the command
+     * @return mixed|false
      */
     public static function __callStatic($method, $arguments)
     {
@@ -79,7 +81,7 @@ class NewRelic
      * Convert command name from cameCase to undesr_score
      *
      * @param  string $name Name of the command
-     * @return string API function name
+     * @return string       API function name
      */
     protected function formatMethod($name)
     {
@@ -89,8 +91,8 @@ class NewRelic
     /**
      * Returns an instance of `NewRelic`.
      *
-     * @staticvar \static $instance
-     * @return    \static
+     * @staticvar NewRelic $instance
+     * @return    NewRelic
      */
     public static function getInstance()
     {
@@ -106,7 +108,7 @@ class NewRelic
     /**
      * Check if the newrelic extension is loaded. Return cached result after first check
      *
-     * @staticvar \static $loaded
+     * @staticvar boolean $loaded
      * @return    boolean
      */
     public static function isLoaded()
