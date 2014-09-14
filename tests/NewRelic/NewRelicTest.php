@@ -20,10 +20,7 @@ class NewRelicTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\\NewRelic\\NewRelic', $newRelic);
 
         $newRelicConfig = new NewRelic(array('name' => self::APP_NAME));
-        $this->assertInstanceOf('\\NewRelic\\NewRelic', $newRelic);
-
-        $newRelicAgent = new NewRelicAgent;
-        $this->assertInstanceOf('\\NewRelic\\NewRelic', $newRelicAgent);
+        $this->assertInstanceOf('\\NewRelic\\NewRelic', $newRelicConfig);
     }
 
     public function testIsLoaded()
