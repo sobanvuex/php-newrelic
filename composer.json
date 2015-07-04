@@ -8,21 +8,30 @@
         {
             "name": "Alex Soban",
             "email": "me@soban.co",
-            "homepage": "https://soban.co"
+            "homepage": "https://soban.co",
+            "role": "Developer"
         }
     ],
+    "support": {
+        "email": "me@soban.co",
+        "issues": "https://github.com/SobanVuex/php-newrelic/issues",
+        "source": "https://github.com/SobanVuex/php-newrelic"
+    },
     "autoload": {
         "psr-4": {
-            "NewRelic\\": "src/NewRelic/"
+            "SobanVuex\\NewRelic\\": "src/"
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "~4",
+        "pimple/pimple": "~3",
+        "codacy/coverage": "dev-master"
     },
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.4"
     },
     "suggest": {
+        "pimple/pimple": "Pimple is a small dependency injection container for PHP",
         "ext-newrelic": "Get the New Relic PHP extension from http://newrelic.com"
     }
 }

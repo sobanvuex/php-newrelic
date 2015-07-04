@@ -5,8 +5,22 @@ php:
   - 5.5
   - 5.6
 
-before_script: make before
+env:
+  secure: m3pM4B2jSq3xFSvvhvP4guTFsklNfU2rDJe1CNg7mfIg8wP6NqX7esB9EzfNySpOYNfSjDI4Bl8eVaE2vogtseKLvX9Q9P3fmhV3RIRPop3G1hK1wRikFdUeQ3ta42gtE0YtYBZ1GtYgBwHy75RYpLssAER8hxN0Vus0TC/byO8=
 
-after_script: make after
+install:
+  - bash tests/newrelic-php5.sh
+  - composer self-update
 
-script: make test
+before_script:
+  - echo "newrelic.appname = php-newrelic@$(git rev-parse --short HEAD) php@$(phpenv version-name)" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - composer install
+
+script:
+  - phpunit
+
+after_script:
+  - vendor/bin/codacycoverage clover coverage.xml
+
+notifications:
+  email: false

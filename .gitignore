@@ -1,5 +1,7 @@
-/nbproject/
-/vendor/
+vendor/
 composer.phar
 composer.lock
-ocular.phar
+
+env.yml
+
+coverage.xml
