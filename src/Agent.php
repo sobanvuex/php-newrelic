@@ -27,7 +27,7 @@ class Agent
      *
      * @var array
      */
-     protected $settings;
+     protected $settings = [];
 
     /**
      * Construct a new `Agent`
@@ -37,8 +37,7 @@ class Agent
     public function __construct(array $settings = [])
     {
         $this->loaded = extension_loaded('newrelic');
-        $this->settings = $settings;
-        $this->setSettings();
+        $this->setSettings($settings);
     }
 
     /**
