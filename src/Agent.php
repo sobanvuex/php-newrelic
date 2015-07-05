@@ -10,6 +10,8 @@
 
 namespace SobanVuex\NewRelic;
 
+use Exception;
+
 /**
  * Wrapper for the newrelic extension
  */
@@ -72,6 +74,7 @@ class Agent
      * Get .ini settings
      *
      * @param boolean $all
+     * @param boolean $details
      *
      * @return array
      */
@@ -130,14 +133,14 @@ class Agent
     /**
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-metric
      *
-     * @param string $key
+     * @param string $metric
      * @param float $value
      *
      * @return boolean
      */
-    public function customMetric($key, $value)
+    public function customMetric($metric, $value)
     {
-        return $this->isLoaded() ? newrelic_custom_metric($key, $value) : false;
+        return $this->isLoaded() ? newrelic_custom_metric($metric, $value) : false;
     }
 
     /**
@@ -223,5 +226,68 @@ class Agent
     public function nameTransaction($name)
     {
         return $this->isLoaded() ? newrelic_name_transaction($name) : false;
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-notice-error
+     *
+     * @param string $message
+     * @param Exception $exception
+     */
+    public function noticeError($message, Exception $exception = null)
+    {
+        $this->isLoaded() && newrelic_notice_error($message, $exception);
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-record-custom-event
+     *
+     * @param string $name
+     * @param array $attributes
+     */
+    public function recordCustomEvent($name, array $attributes)
+    {
+        $this->isLoaded() && newrelic_record_custom_event($name, $attributes);
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-appname
+     *
+     * @param string $name
+     * @param string $license
+     * @param boolean $xmit
+     *
+     * @return boolean
+     */
+    public function setAppname($name, $license = null, $xmit = false)
+    {
+        return $this->isLoaded() ? newrelic_set_appname($name, $license ?: ini_get('newrelic.license'), $xmit) : false;
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-user-attributes
+     *
+     * @param string $user
+     * @param string $account
+     * @param string $product
+     *
+     * @return boolean
+     */
+    public function setUserAttributes($user, $account, $product)
+    {
+        return $this->isLoaded() ? newrelic_set_user_attributes($user, $account, $product) : false;
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-user-attributes
+     *
+     * @param string $appname
+     * @param string $license
+     *
+     * @return boolean
+     */
+    public function startTransaction($appname, $license = null)
+    {
+        return $this->isLoaded() ? newrelic_start_transaction($appname, $license ?: ini_get('newrelic.license')) : false;
     }
 }
