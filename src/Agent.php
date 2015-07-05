@@ -31,6 +31,8 @@ class Agent
 
     /**
      * Construct a new `Agent`
+     *
+     * @param array $settings
      */
     public function __construct(array $settings = [])
     {
@@ -53,6 +55,7 @@ class Agent
      * Set .ini settings
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-configuration
+     *
      * @param array $settings Array of settings to apply
      */
     public function setSettings(array $settings = [])
@@ -70,6 +73,7 @@ class Agent
      * Get .ini settings
      *
      * @param boolean $all
+     *
      * @return array
      */
     public function getSettings($all = false, $details = false)
@@ -148,5 +152,77 @@ class Agent
     public function disableAutorum($return = true)
     {
         return $this->isLoaded() ? newrelic_disable_autorum() : $return;
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-eot
+     */
+    public function endOfTransaction()
+    {
+        $this->isLoaded() && newrelic_end_of_transaction();
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-end-txn
+     *
+     * @param boolean $ignore
+     *
+     * @return boolean
+     */
+    public function endTransaction($ignore = false)
+    {
+        return $this->isLoaded() ? newrelic_end_transaction($ignore) : false;
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-footer
+     *
+     * @param boolean $tags
+     *
+     * @return string|boolean
+     */
+    public function getBrowserTimingFooter($tags = true)
+    {
+        return $this->isLoaded() ? newrelic_get_browser_timing_footer($tags) : false;
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-header
+     *
+     * @param boolean $tags
+     *
+     * @return string|boolean
+     */
+    public function getBrowserTimingHeader($tags = true)
+    {
+        return $this->isLoaded() ? newrelic_get_browser_timing_header($tags) : false;
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-ignore-apdex
+     */
+    public function ignoreApdex()
+    {
+        $this->isLoaded() && newrelic_ignore_apdex();
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-ignore-transaction
+     */
+    public function ignoreTransaction()
+    {
+        $this->isLoaded() && newrelic_ignore_transaction();
+    }
+
+    /**
+     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-name-wt
+     *
+     * @param string $name
+     *
+     * @return boolean
+     */
+    public function nameTransaction($name)
+    {
+        return $this->isLoaded() ? newrelic_name_transaction($name) : false;
     }
 }
