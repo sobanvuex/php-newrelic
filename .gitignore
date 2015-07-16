@@ -1,5 +1,4 @@
-/nbproject/
-/vendor/
-composer.phar
+.idea/
+build/
+vendor/
 composer.lock
-ocular.phar

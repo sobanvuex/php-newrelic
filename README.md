@@ -1,39 +1,16 @@
-PHP NewRelic
-============
+# PHP NewRelic
 
-| Quality / Metrics | Releases | Downloads | License |
-| ----------------- | -------- | --------- | ------- |
-[![Build Status](https://travis-ci.org/SobanVuex/php-newrelic.svg?branch=master)](https://travis-ci.org/SobanVuex/php-newrelic) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/SobanVuex/php-newrelic/badges/quality-score.png?s=60d5ad67e11392a438abd053311d24bbf06ecf79)](https://scrutinizer-ci.com/g/SobanVuex/php-newrelic/) [![Code Coverage](https://scrutinizer-ci.com/g/SobanVuex/php-newrelic/badges/coverage.png?s=d4ca6c4d8348df87a5a3cd74e10145023bec3316)](https://scrutinizer-ci.com/g/SobanVuex/php-newrelic/) | [![Latest Stable Version](https://poser.pugx.org/sobanvuex/php-newrelic/v/stable.svg)](https://packagist.org/packages/sobanvuex/php-newrelic) | [![Composer Downloads](https://poser.pugx.org/sobanvuex/php-newrelic/d/total.png)](https://packagist.org/packages/sobanvuex/php-newrelic) | [![License](https://poser.pugx.org/sobanvuex/php-newrelic/license.png)](https://packagist.org/packages/sobanvuex/php-newrelic)
+[![Build Status](https://img.shields.io/travis/SobanVuex/php-newrelic.svg?style=flat-square)](https://travis-ci.org/SobanVuex/php-newrelic)
+[![Code Quality](https://img.shields.io/codacy/4ae6b03171cd4e31abb4b2f516c72b4c.svg?style=flat-square)](https://www.codacy.com/app/SobanVuex/php-newrelic)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/403d6309-fc15-4c86-ac80-4fdb6e8f19c1.svg?style=flat-square)](https://insight.sensiolabs.com/projects/403d6309-fc15-4c86-ac80-4fdb6e8f19c1)
+[![Packagist Stable](https://img.shields.io/packagist/v/SobanVuex/php-newrelic.svg?style=flat-square)](https://packagist.org/packages/SobanVuex/php-newrelic)
+[![Packagist Downloads](https://img.shields.io/packagist/dt/SobanVuex/php-newrelic.svg?style=flat-square)](https://packagist.org/packages/SobanVuex/php-newrelic)
+[![Packagist License](https://img.shields.io/packagist/l/SobanVuex/php-newrelic.svg?style=flat-square)](#)
 
-Requirements
-------------
+## Installation
 
-- PHP >=5.3.3
-- NewRelic extension for PHP
-
-Installation
-------------
-
-Using Composer's command line interface:
+Through Composer:
 
 ```bash
-php composer.phar require sobanvuex/php-newrelic:1.*
-```
-
-- - -
-
-Manually adding the requirements to `composer.json`:
-
-```js
-"require": {
-    "sobanvuex/php-newrelic": "1.*"
-}
-```
-
-- - -
-
-Don't forget to load Composer's autoloader
-
-```php
-require 'vendor/autoload.php';
+php composer.phar require SobanVuex/php-newrelic:~2
 ```
