@@ -1,11 +1,12 @@
 <?php
 
-/**
- * PHP NewRelic library.
+/*
+ * This file is part of the PHP New Relic package.
  *
- * @copyright 2015 Alex Soban. See LICENSE for information.
- * @license   http://opensource.org/licenses/MIT
- * @author    Alex Soban <me@soban.co>
+ * (c) Alex Soban <me@soban.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace SobanVuex\NewRelic\Provider\Pimple;
@@ -15,19 +16,19 @@ use Pimple\ServiceProviderInterface;
 use SobanVuex\NewRelic\Agent;
 
 /**
- * NewRelic Agent Provider for Pimple
+ * Service provider for the New Relic Agent Wrapper.
  */
 class AgentProvider implements ServiceProviderInterface
 {
     /**
-     * Register the New Relic Agent service to Pimple
+     * Register the Wrapper Service with Pimple.
      *
-     * @param Container $pimple
+     * @param \Pimple\Container $pimple
      */
     public function register(Container $pimple)
     {
         $pimple['newrelic'] = function () {
-            return new Agent;
+            return new Agent();
         };
     }
 }

@@ -1,0 +1,12 @@
+---
+
+source: src
+destination: build/docs
+
+title: PHP New Relic Library
+main: SobanVuex\NewRelic
+
+templateTheme: bootstrap
+
+todo: true
+noSourceCode: true
