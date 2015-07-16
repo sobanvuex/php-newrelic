@@ -242,8 +242,6 @@ class Agent
     }
 
     /**
-     * @todo doc summary
-     *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-ignore-apdex
      */
     public function ignoreApdex()
@@ -254,8 +252,6 @@ class Agent
     }
 
     /**
-     * @todo doc summary
-     *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-ignore-transaction
      */
     public function ignoreTransaction()
@@ -266,8 +262,6 @@ class Agent
     }
 
     /**
-     * @todo doc summary
-     *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-name-wt
      *
      * @param string $name
@@ -286,8 +280,6 @@ class Agent
     /**
      * Added in v. 2.6 of the New Relic Agent.
      *
-     * @todo doc summary
-     *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-notice-error
      *
      * @param string    $message
@@ -302,8 +294,6 @@ class Agent
 
     /**
      * Added in v. 4.18 of the New Relic Agent.
-     *
-     * @todo doc summary
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-record-custom-event
      *
@@ -320,8 +310,6 @@ class Agent
     }
 
     /**
-     * @todo doc summary
-     *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-appname
      *
      * @param string $name
@@ -342,8 +330,6 @@ class Agent
     /**
      * Added in v. 3.1 of the New Relic Agent.
      *
-     * @todo doc summary
-     *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-user-attributes
      *
      * @param string $user
@@ -363,8 +349,6 @@ class Agent
 
     /**
      * Added in v. 3.0 of the New Relic Agent.
-     *
-     * @todo doc summary
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-start-txn
      * @see endTransaction
