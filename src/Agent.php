@@ -30,8 +30,8 @@ class Agent
      *
      * Passing an application name will call the agent api right away.
      *
-     * @param string $appname
-     * @param string $license
+     * @param string|array $appname
+     * @param string       $license
      */
     public function __construct($appname = null, $license = null)
     {
@@ -56,7 +56,6 @@ class Agent
      * Add a custom parameter to the current web transaction with the specified value.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-param
-     * @link https://docs.newrelic.com/docs/insights/new-relic-insights/decorating-events/insights-custom-attributes#keywords
      *
      * @param string $key
      * @param mixed  $value
@@ -301,7 +300,6 @@ class Agent
      * Added in New Relic Agent 4.18.
      *
      * @link  https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-record-custom-event
-     * @link  https://docs.newrelic.com/docs/insights/new-relic-insights/adding-querying-data/inserting-custom-events-new-relic-agents#php-att
      *
      * @param string $name
      * @param array  $attributes
