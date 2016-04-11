@@ -9,5 +9,5 @@ ls | xargs rm -rf && \
 mv ../docs/* .
 test -z "$(git log --grep ${GH_REV} --format='%s')" && \
 git add . && \
-git commit -m "Api @ ${GH_REV}"
-# git push -q https://${GH_TOKEN}@${GH_REF}.git &> /dev/null
+git commit -m "Api @ ${GH_REV}" && \
+git push -q
