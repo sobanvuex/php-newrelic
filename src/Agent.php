@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is part of the PHP New Relic package.
  *
  * (c) Alex Soban <me@soban.co>
@@ -52,13 +52,11 @@ class Agent
         return $this->loaded;
     }
 
-    // PHP Agent API //
-
     /**
-     * Add a custom parameter to the current web transaction with the specified
-     * value.
+     * Add a custom parameter to the current web transaction with the specified value.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-param
+     * @link https://docs.newrelic.com/docs/insights/new-relic-insights/decorating-events/insights-custom-attributes#keywords
      *
      * @param string $key
      * @param mixed  $value
@@ -108,8 +106,7 @@ class Agent
     }
 
     /**
-     * Enable/disable the capturing of URL parameters for displaying in
-     * transaction traces.
+     * Enable/disable the capturing of URL parameters for displaying in transaction traces.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-capture-params
      *
@@ -123,8 +120,8 @@ class Agent
     }
 
     /**
-     * Add custom metric with the specified $name and $value, which is of type
-     * double. Values saved are assumed to be milliseconds.
+     * Add custom metric with the specified $name and $value, which is of type double. Values saved are assumed to be
+     * milliseconds.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-metric
      *
@@ -143,10 +140,8 @@ class Agent
     }
 
     /**
-     * Disable the insertion of the JavaScript for page load timing (RUM) for
-     * the current transaction.
-     * The return value can be different from `true` if the extension is not
-     * loaded.
+     * Disable the insertion of the JavaScript for page load timing (RUM) for the current transaction.
+     * The return value can be different from `true` if the extension is not loaded.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-disable
      *
@@ -164,11 +159,10 @@ class Agent
     }
 
     /**
-     * Stop recording the current transaction. The metrics gathered are send
-     * to the daemon when the PHP engine determines the script is done and is
-     * shutting down. Useful with file downloads, streaming, etc.
+     * Stop recording the current transaction. The metrics gathered are send to the daemon when the PHP engine
+     * determines the script is done and is shutting down. Useful with file downloads, streaming, etc.
      *
-     * Added in New Relig Agent 3.0.
+     * Added in New Relic Agent 3.0.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-eot
      */
@@ -180,15 +174,14 @@ class Agent
     }
 
     /**
-     * Stop recording the current transaction and send all of the metrics
-     * gathered thus far to the daemon, unless $ignore is set to `true`. Useful
-     * with queue processing where more than one transactions can occur over
-     * the execution of the script.
+     * Stop recording the current transaction and send all of the metrics gathered thus far to the daemon, unless
+     * $ignore is set to `true`. Useful with queue processing where more than one transactions can occur over the
+     * execution of the script.
      *
-     * Added in v. 2.3 of the New Relic Agent.
+     * Added in New Relic Agent 2.3.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-end-txn
-     * @see startTransaction
+     * @see  startTransaction
      *
      * @param bool $ignore
      *
@@ -204,44 +197,45 @@ class Agent
     }
 
     /**
-     * Get the JavaScript for page load timing (RUM) which is to be inserted at
-     * the end of the HTML output.
+     * Get the JavaScript for page load timing (RUM) which is to be inserted at the end of the HTML output.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-footer
      *
      * @param bool $tags Wrap with a `<script>` tag when set to `true`
      *
-     * @return string|bool
+     * @return string
      */
     public function getBrowserTimingFooter($tags = true)
     {
         if (!$this->isLoaded()) {
-            return false;
+            return '';
         }
 
         return newrelic_get_browser_timing_footer($tags);
     }
 
     /**
-     * Get the JavaScript for page load timing (RUM) which is to be inserted at
-     * the beginning of the HTML output.
+     * Get the JavaScript for page load timing (RUM) which is to be inserted at the beginning of the HTML output.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-header
      *
      * @param bool $tags Wrap with a `<script>` tag when set to `true`
      *
-     * @return string|bool
+     * @return string
      */
     public function getBrowserTimingHeader($tags = true)
     {
         if (!$this->isLoaded()) {
-            return false;
+            return '';
         }
 
         return newrelic_get_browser_timing_header($tags);
     }
 
     /**
+     * Do not generate Apdex metrics for this transaction. This is useful when you have either very short or very long
+     * transactions (such as file downloads) that can skew your Apdex score.
+     *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-ignore-apdex
      */
     public function ignoreApdex()
@@ -252,6 +246,10 @@ class Agent
     }
 
     /**
+     * Do not generate metrics for this transaction. This is useful when you have transactions that are particularly
+     * slow for known reasons and you do not want them always being reported as the transaction trace or skewing your
+     * site averages.
+     *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-ignore-transaction
      */
     public function ignoreTransaction()
@@ -262,6 +260,9 @@ class Agent
     }
 
     /**
+     * Sets the name of the transaction to the specified name. This can be useful if you have implemented your own
+     * dispatching scheme and want to name transactions according to their purpose rather than their URL.
+     *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-name-wt
      *
      * @param string $name
@@ -278,7 +279,9 @@ class Agent
     }
 
     /**
-     * Added in v. 2.6 of the New Relic Agent.
+     * Report an error at this line of code, with a complete stack trace.
+     *
+     * Added in New Relic Agent 2.6.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-notice-error
      *
@@ -293,9 +296,12 @@ class Agent
     }
 
     /**
-     * Added in v. 4.18 of the New Relic Agent.
+     * Records a New Relic Insights custom event.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-record-custom-event
+     * Added in New Relic Agent 4.18.
+     *
+     * @link  https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-record-custom-event
+     * @link  https://docs.newrelic.com/docs/insights/new-relic-insights/adding-querying-data/inserting-custom-events-new-relic-agents#php-att
      *
      * @param string $name
      * @param array  $attributes
@@ -310,11 +316,14 @@ class Agent
     }
 
     /**
+     * Sets the name of the application to name. You can set multiple application names by using `newrelic.appname`
+     * format - "App1;App2" or passing an array - ['App1', 'App2'].
+     *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-appname
      *
-     * @param string $name
-     * @param string $license
-     * @param bool   $xmit
+     * @param string|array $name
+     * @param string       $license
+     * @param bool         $xmit
      *
      * @return bool
      */
@@ -323,12 +332,15 @@ class Agent
         if (!$this->isLoaded()) {
             return false;
         }
+        if (is_array($name)) {
+            $name = implode(';', $name);
+        }
 
         return newrelic_set_appname($name, $license ?: ini_get('newrelic.license'), $xmit);
     }
 
     /**
-     * Added in v. 3.1 of the New Relic Agent.
+     * Added New Relic Agent 3.1.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-user-attributes
      *
@@ -348,10 +360,13 @@ class Agent
     }
 
     /**
-     * Added in v. 3.0 of the New Relic Agent.
+     * If you have ended a transaction before your script terminates (perhaps due to it just having finished a task in
+     * a job queue manager) and you want to start a new transaction, use this call.
+     *
+     * Added in New Relic Agent 3.0.
      *
      * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-start-txn
-     * @see endTransaction
+     * @see  endTransaction
      *
      * @param string $appname
      * @param string $license

@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is part of the PHP New Relic package.
  *
  * (c) Alex Soban <me@soban.co>

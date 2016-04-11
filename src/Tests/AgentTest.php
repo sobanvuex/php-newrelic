@@ -1,11 +1,12 @@
 <?php
 
 /**
- * PHP NewRelic library.
+ * This file is part of the PHP New Relic package.
  *
- * @copyright 2015 Alex Soban. See LICENSE for information.
- * @license   http://opensource.org/licenses/MIT
- * @author    Alex Soban <me@soban.co>
+ * (c) Alex Soban <me@soban.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace SobanVuex\NewRelic\Tests;
