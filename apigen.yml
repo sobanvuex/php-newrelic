@@ -3,7 +3,7 @@
 source: src
 destination: build/docs
 exclude:
-  - Tests/*
+  - test/*
 
 title: PHP New Relic Library
 main: SobanVuex\NewRelic

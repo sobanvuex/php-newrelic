@@ -1,42 +1,22 @@
 language: php
 
-sudo: false
-
 php:
-  - 5.3
   - 5.4
   - 5.5
   - 5.6
-
-matrix:
-  allow_failures:
-    - php: 5.3
-
-env:
-  global:
-    - GH_REF: github.com/SobanVuex/php-newrelic
-    - secure: da/t+qIwrhgTY2drTV0uQTWuDaflSuSzEG0225mf9sCHA9wPJ4j1//qCASilEBzNlJgNAUSbhEBSAaT/HIHtqfpeDmoVO0ZvpXFmy/XvwUqIy4SIkMHDy8x6m82JyRBWUNmXtAfotGoGJuXJ7uWGhbmytMR3Mq9cgrLPi16acHY=
-    - secure: dr+EV62npEkNh76kW4hHyjz/MrWhX1zMz2wDSnqw2zEgui9/XzXotUfzbj2vulCVZq2cJ1rklRkNnexIxPoKn6LXklWcqmeQdCiNMJ/XdLg5q7NIJlXYbDQZd6SawR/9WJyQxVfPaQj5jBSSbbRVBLoA0TjTa7i9NEYdnWASN2w=
-
-install:
-  - composer self-update
-  - composer install
+  - 7.0
 
 before_script:
-  - export GH_AUTHOR=$(git log --pretty=format:"%aN" -1)
-  - export GH_EMAIL=$(git log --pretty=format:"%aE" -1)
-  - export GH_REV=$(git rev-parse --short HEAD)
+  - travis_retry composer install --no-interaction --prefer-source --dev
+  - travis_retry phpenv rehash
 
 script:
-  - ./vendor/bin/phpunit --configuration phpunit.xml
+  - ./vendor/bin/phpcs -sp --standard=psr2 src
+  - ./vendor/bin/phpunit
 
 after_script:
-  - if [ $TRAVIS_PHP_VERSION = '5.6' ]; then ./vendor/bin/codacycoverage clover build/coverage.clover; fi
-
-after_success:
-  - rm -fr build/docs build/gh-pages
-  - ./vendor/bin/apigen generate --config apigen.yml
-  - if [ $TRAVIS_PHP_VERSION = '5.6' ] && [ $TRAVIS_BRANCH = 'master' ] && [ $TRAVIS_PULL_REQUEST = 'false' ]; then ./gh-pages.sh; fi
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover build/coverage/log/coverage.clover
 
 notifications:
   email: false
