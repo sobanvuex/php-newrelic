@@ -28,15 +28,19 @@ class Agent
      *
      * Passing an application name will call the agent api right away.
      *
-     * @param string|array|null $appname
-     * @param string|null       $license
+     * @param string|array $name    (optional) Name(s) of app metrics should be reported under in New Relic
+     *                              user interface
+     * @param string       $license (optional) Specify a different license key to report metrics to a different
+     *                              New Relic account
      */
     public function __construct($appname = null, string $license = null)
     {
         $this->loaded = extension_loaded('newrelic');
 
-        if ($appname) {
+        if (isset($appname, $license)) {
             $this->setAppname($appname, $license);
+        } elseif (isset($appname)) {
+            $this->setAppname($appname);
         }
     }
 
@@ -45,7 +49,7 @@ class Agent
      *
      * @return bool
      */
-    public function isLoaded()
+    public function isLoaded(): bool
     {
         return $this->loaded;
     }
@@ -57,8 +61,8 @@ class Agent
      *
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_add_custom_parameter
      *
-     * @param string $key   The name of the custom attribute. Only the first 255 characters are retained.
-     * @param mixed  $value The value to associate with this custom attribute.
+     * @param string $key   The name of the custom attribute. Only the first 255 characters are retained
+     * @param mixed  $value The value to associate with this custom attribute
      *
      * @return bool
      */
@@ -79,7 +83,7 @@ class Agent
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_add_custom_tracer
      *
      * @param string $callable The name can be formatted either as function_name for procedural functions,
-     *                         or as "ClassName::method" for methods.
+     *                         or as "ClassName::method" for methods
      *
      * @return bool
      */
@@ -99,7 +103,7 @@ class Agent
      *
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_background_job
      *
-     * @param bool $flag Optional. Defaults to true.
+     * @param bool $flag (optional) Defaults to true
      */
     public function backgroundJob(bool $flag = true)
     {
@@ -115,7 +119,7 @@ class Agent
      *
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_capture_params
      *
-     * @param bool $enable Optional. Defaults to true.
+     * @param bool $enable (optional) Defaults to true
      */
     public function captureParams(bool $enable = true)
     {
@@ -131,9 +135,9 @@ class Agent
      *
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newreliccustommetric-php-agent-api
      *
-     * @param string $metric Name your custom metrics with a Custom/ prefix (for example, Custom/MyMetric).
+     * @param string $metric Name your custom metrics with a Custom/ prefix (for example, Custom/MyMetric)
      * @param float  $value  Records timing in milliseconds. For example: a value of 4 is stored as .004 seconds
-     *                       in New Relic's systems.
+     *                       in New Relic's systems
      *
      * @return bool
      */
@@ -190,7 +194,7 @@ class Agent
      * @see self::endOfTransaction
      * @see self::startTransaction
      *
-     * @param bool $ignore Optional. Defaults to false.
+     * @param bool $ignore (optional) Defaults to false
      *
      * @return bool
      */
@@ -212,8 +216,8 @@ class Agent
      * @see self::disableAutorum
      * @see self::getBrowserTimingHeader
      *
-     * @param bool $tags Optional. Defaults to true. If true or omitted, the string is enclosed in a <script>
-     *                   element for easy inclusion in the page's HTML.
+     * @param bool $tags (optional) Defaults to true. If true or omitted, the string is enclosed in a <script>
+     *                   element for easy inclusion in the page's HTML
      *
      * @return string|null
      */
@@ -235,7 +239,7 @@ class Agent
      * @see self::disableAutorum
      * @see self::getBrowserTimingFooter
      *
-     * @param bool $tags Optional. Defaults to true. If true or omitted, the string is enclosed in a <script>
+     * @param bool $tags (optional) Defaults to true. If true or omitted, the string is enclosed in a <script>
      *                   element for easy inclusion in the page's HTML.
      *
      * @return string|null
@@ -284,7 +288,7 @@ class Agent
      *
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_name_transaction
      *
-     * @param string $name Name of the transaction.
+     * @param string $name Name of the transaction
      *
      * @return bool
      */
@@ -306,10 +310,10 @@ class Agent
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_notice_error
      *
      * @param string|\Throwable|\Exception|int $message|$e|$e|$errno
-     * @param \Throwable|\Exception|sring      $e|$e|$errstr
-     * @param string                           $errfile
-     * @param int                              $errline
-     * @param string                           $errcontext
+     * @param \Throwable|\Exception|sring      $e|$e|$errstr         (optional)
+     * @param string                           $errfile              (optional)
+     * @param int                              $errline              (optional)
+     * @param string                           $errcontext           (optional)
      */
     public function noticeError(...$arguments)
     {
@@ -325,8 +329,8 @@ class Agent
      *
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_record_custom_event
      *
-     * @param string $name       Name of the custom event.
-     * @param array  $attributes Supply custom attributes as an associative array.
+     * @param string $name       Name of the custom event
+     * @param array  $attributes Supply custom attributes as an associative array
      *
      * @since 2.0.0
      */
@@ -342,11 +346,13 @@ class Agent
      *
      * Agent version 7.5.0.199 or higher.
      *
-     * @param callable $callback
-     * @param array    $parameters
+     * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_record_datastore_segment
+     *
+     * @param callable $callback   The function that should be timed to create the datastore segment
+     * @param array    $parameters An associative array of parameters describing the datastore call
      *
      * @return mixed The return value of $callback is returned. If an error occurs, false is returned, and an error
-     * at the E_WARNING level will be triggered.
+     *               at the E_WARNING level will be triggered
      *
      * @since 3.0.0
      */
@@ -366,9 +372,10 @@ class Agent
      *
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_set_appname
      *
-     * @param string|array $name    Name(s) of app metrics should be reported under in New Relic user interface.
-     * @param string       $license Specify a different license key to report metrics to a different New Relic account.
-     * @param bool         $xmit    Optional. Defaults to false.
+     * @param string|array $name    Name(s) of app metrics should be reported under in New Relic user interface
+     * @param string       $license (optional) Specify a different license key to report metrics to a different
+     *                              New Relic account
+     * @param bool         $xmit    (optional) Defaults to false
      *
      * @return bool
      */
@@ -395,9 +402,9 @@ class Agent
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_set_user_attributes
      * @see self::addCustomParameter
      *
-     * @param string $user    Specify a name or username to associate with this page view.
-     * @param string $account Specify the name of a user account to associate with this page view.
-     * @param string $product Specify the name of a product to associate with this page view.
+     * @param string $user    Specify a name or username to associate with this page view
+     * @param string $account Specify the name of a user account to associate with this page view
+     * @param string $product Specify the name of a product to associate with this page view
      *
      * @return bool
      */
@@ -418,9 +425,9 @@ class Agent
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_start_transaction
      * @see self::endTransaction
      *
-     * @param string $appname The application name to associate with data from this transaction.
-     * @param string $license Provide a different license key if you want the transaction to report to a different
-     *                        New Relic account.
+     * @param string $appname The application name to associate with data from this transaction
+     * @param string $license (optional) Provide a different license key if you want the transaction to report
+     *                        to a different New Relic account
      *
      * @return bool
      */
