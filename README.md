@@ -22,7 +22,6 @@ composer require SobanVuex/php-newrelic:~2.0
 ## Usage
 
 Use the Agent directly or with your own DI with `\SobanVuex\NewRelic\Agent`.
-Or using `Pimple` with `\SobanVuex\NewRelic\Provider\Pimple\AgentPrivoder`.
 
 ### Examples
 
