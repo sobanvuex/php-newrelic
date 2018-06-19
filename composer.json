@@ -23,7 +23,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SobanVuex\\NewRelic\\Test\\": "test/src/"
+            "SobanVuex\\NewRelic\\Tests\\": "tests/src/"
         }
     },
     "require": {

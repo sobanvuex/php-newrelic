@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the PHP New Relic package.
  *
  * (c) Alex Soban <me@soban.co>
@@ -55,7 +55,7 @@ class Agent
     /**
      * Add a custom parameter to the current web transaction with the specified value.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-param
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-param
      *
      * @param string $key
      * @param mixed  $value
@@ -75,7 +75,7 @@ class Agent
      * Add user-defined functions or methods to the list to be instrumented.
      * Internal PHP functions cannot have custom tracing.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-tracer
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-tracer
      *
      * @param string $callable
      *
@@ -93,7 +93,7 @@ class Agent
     /**
      * Mark a transaction as a background job.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-bg
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-bg
      *
      * @param bool $flag
      */
@@ -107,7 +107,7 @@ class Agent
     /**
      * Enable/disable the capturing of URL parameters for displaying in transaction traces.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-capture-params
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-capture-params
      *
      * @param bool $enable
      */
@@ -122,7 +122,7 @@ class Agent
      * Add custom metric with the specified $name and $value, which is of type double. Values saved are assumed to be
      * milliseconds.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-metric
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-metric
      *
      * @param string $metric
      * @param float  $value
@@ -142,7 +142,7 @@ class Agent
      * Disable the insertion of the JavaScript for page load timing (RUM) for the current transaction.
      * The return value can be different from `true` if the extension is not loaded.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-disable
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-disable
      *
      * @param bool $return
      *
@@ -163,7 +163,7 @@ class Agent
      *
      * Added in New Relic Agent 3.0.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-eot
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-eot
      */
     public function endOfTransaction()
     {
@@ -179,7 +179,7 @@ class Agent
      *
      * Added in New Relic Agent 2.3.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-end-txn
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-end-txn
      * @see  startTransaction
      *
      * @param bool $ignore
@@ -198,7 +198,7 @@ class Agent
     /**
      * Get the JavaScript for page load timing (RUM) which is to be inserted at the end of the HTML output.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-footer
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-footer
      *
      * @param bool $tags Wrap with a `<script>` tag when set to `true`
      *
@@ -216,7 +216,7 @@ class Agent
     /**
      * Get the JavaScript for page load timing (RUM) which is to be inserted at the beginning of the HTML output.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-header
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-rum-header
      *
      * @param bool $tags Wrap with a `<script>` tag when set to `true`
      *
@@ -235,7 +235,7 @@ class Agent
      * Do not generate Apdex metrics for this transaction. This is useful when you have either very short or very long
      * transactions (such as file downloads) that can skew your Apdex score.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-ignore-apdex
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-ignore-apdex
      */
     public function ignoreApdex()
     {
@@ -249,7 +249,7 @@ class Agent
      * slow for known reasons and you do not want them always being reported as the transaction trace or skewing your
      * site averages.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-ignore-transaction
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-ignore-transaction
      */
     public function ignoreTransaction()
     {
@@ -262,7 +262,7 @@ class Agent
      * Sets the name of the transaction to the specified name. This can be useful if you have implemented your own
      * dispatching scheme and want to name transactions according to their purpose rather than their URL.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-name-wt
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-name-wt
      *
      * @param string $name
      *
@@ -282,7 +282,7 @@ class Agent
      *
      * Added in New Relic Agent 2.6.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-notice-error
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-notice-error
      *
      * @param string    $message
      * @param Exception $exception
@@ -299,7 +299,7 @@ class Agent
      *
      * Added in New Relic Agent 4.18.
      *
-     * @link  https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-record-custom-event
+     * @see  https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-record-custom-event
      *
      * @param string $name
      * @param array  $attributes
@@ -317,7 +317,7 @@ class Agent
      * Sets the name of the application to name. You can set multiple application names by using `newrelic.appname`
      * format - "App1;App2" or passing an array - ['App1', 'App2'].
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-appname
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-appname
      *
      * @param string|array $name
      * @param string       $license
@@ -340,7 +340,7 @@ class Agent
     /**
      * Added New Relic Agent 3.1.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-user-attributes
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-user-attributes
      *
      * @param string $user
      * @param string $account
@@ -363,7 +363,7 @@ class Agent
      *
      * Added in New Relic Agent 3.0.
      *
-     * @link https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-start-txn
+     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-start-txn
      * @see  endTransaction
      *
      * @param string $appname
