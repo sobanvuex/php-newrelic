@@ -33,14 +33,14 @@ class Agent
      * @param string       $license (optional) Specify a different license key to report metrics to a different
      *                              New Relic account
      */
-    public function __construct($appname = null, string $license = null)
+    public function __construct($name = null, string $license = null)
     {
         $this->loaded = extension_loaded('newrelic');
 
-        if (isset($appname, $license)) {
-            $this->setAppname($appname, $license);
-        } elseif (isset($appname)) {
-            $this->setAppname($appname);
+        if (isset($name, $license)) {
+            $this->setAppname($name, $license);
+        } elseif (isset($name)) {
+            $this->setAppname($name);
         }
     }
 
@@ -441,6 +441,6 @@ class Agent
             return newrelic_start_transaction($appname, $license);
         }
 
-        return newrelic_start_transaction($name);
+        return newrelic_start_transaction($appname);
     }
 }
