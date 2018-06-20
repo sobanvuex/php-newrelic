@@ -12,7 +12,7 @@ before_install:
   - travis_retry composer self-update
 
 install:
-  - sudo apt-get install newrelic-php5
+  - sudo apt-get -y install newrelic-php5
   - sudo NR_INSTALL_SILENT=yes NR_INSTALL_PATH=$(dirname $(phpenv which php)) newrelic-install install
   - travis_retry composer install --no-interaction --prefer-source
 

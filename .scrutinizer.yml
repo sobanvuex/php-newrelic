@@ -1,0 +1,4 @@
+checks:
+    php: true
+tools:
+    external_code_coverage: true
