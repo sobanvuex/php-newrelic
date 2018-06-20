@@ -310,7 +310,7 @@ final class Agent
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_notice_error
      *
      * @param string|\Throwable|\Exception|int $message|$e|$e|$errno
-     * @param \Throwable|\Exception|sring      $e|$e|$errstr         (optional)
+     * @param \Throwable|\Exception|string     $e|$e|$errstr         (optional)
      * @param string                           $errfile              (optional)
      * @param int                              $errline              (optional)
      * @param string                           $errcontext           (optional)
