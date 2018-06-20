@@ -224,7 +224,7 @@ final class Agent
     public function getBrowserTimingFooter(bool $tags = true): string
     {
         if (!$this->isLoaded()) {
-            return null;
+            return '';
         }
 
         return newrelic_get_browser_timing_footer($tags);
