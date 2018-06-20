@@ -17,7 +17,7 @@ install:
   - travis_retry composer install --no-interaction --prefer-source
 
 script:
-  - php -i | grep 'New Relic Version' | sed 's/ =>/:/'
+  - echo $(php -i | grep 'New Relic Version' | sed 's/ =>/:/')
   - ./vendor/bin/phpcs -sp --standard=psr2 src
   - ./vendor/bin/phpunit --verbose --coverage-clover=coverage.clover
 
