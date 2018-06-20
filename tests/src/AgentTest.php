@@ -32,7 +32,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentisLoaded
+     * @covers \SobanVuex\NewRelic\Agent::isLoaded
      */
     public function testIsLoaded()
     {
@@ -42,7 +42,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentaddCustomParameter
+     * @covers \SobanVuex\NewRelic\Agent::addCustomParameter
      */
     public function testAddCustomParameter()
     {
@@ -50,7 +50,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentaddCustomTracer
+     * @covers \SobanVuex\NewRelic\Agent::addCustomTracer
      */
     public function testAddCustomTracer()
     {
@@ -58,7 +58,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentbackgroundJob
+     * @covers \SobanVuex\NewRelic\Agent::backgroundJob
      */
     public function testBackgroundJob()
     {
@@ -66,7 +66,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentcaptureParams
+     * @covers \SobanVuex\NewRelic\Agent::captureParams
      */
     public function testCaptureParams()
     {
@@ -74,7 +74,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentcustomMetric
+     * @covers \SobanVuex\NewRelic\Agent::customMetric
      */
     public function testCustomMetric()
     {
@@ -82,7 +82,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentdisableAutorum
+     * @covers \SobanVuex\NewRelic\Agent::disableAutorum
      */
     public function testDisableAutorum()
     {
@@ -90,7 +90,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentendOfTransaction
+     * @covers \SobanVuex\NewRelic\Agent::endOfTransaction
      */
     public function testEndOfTransaction()
     {
@@ -98,7 +98,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentendTransaction
+     * @covers \SobanVuex\NewRelic\Agent::endTransaction
      */
     public function testEndTransaction()
     {
@@ -106,7 +106,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentgetBrowserTimingFooter
+     * @covers \SobanVuex\NewRelic\Agent::getBrowserTimingFooter
      */
     public function testGetBrowserTimingFooter()
     {
@@ -114,7 +114,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentgetBrowserTimingHeader
+     * @covers \SobanVuex\NewRelic\Agent::getBrowserTimingHeader
      */
     public function testGetBrowserTimingHeader()
     {
@@ -122,7 +122,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentignoreApdex
+     * @covers \SobanVuex\NewRelic\Agent::ignoreApdex
      */
     public function testIgnoreApdex()
     {
@@ -130,7 +130,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentignoreTransaction
+     * @covers \SobanVuex\NewRelic\Agent::ignoreTransaction
      */
     public function testIgnoreTransaction()
     {
@@ -138,7 +138,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentnameTransaction
+     * @covers \SobanVuex\NewRelic\Agent::nameTransaction
      */
     public function testNameTransaction()
     {
@@ -146,7 +146,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentnoticeError
+     * @covers \SobanVuex\NewRelic\Agent::noticeError
      */
     public function testNoticeError()
     {
@@ -154,7 +154,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentrecordCustomEvent
+     * @covers \SobanVuex\NewRelic\Agent::recordCustomEvent
      */
     public function testRecordCustomEvent()
     {
@@ -162,7 +162,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentrecordDatastoreSegment
+     * @covers \SobanVuex\NewRelic\Agent::recordDatastoreSegment
      */
     public function testRecordDatastoreSegment()
     {
@@ -170,7 +170,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentsetAppname
+     * @covers \SobanVuex\NewRelic\Agent::setAppname
      */
     public function testSetAppname()
     {
@@ -178,7 +178,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentsetUserAttributes
+     * @covers \SobanVuex\NewRelic\Agent::setUserAttributes
      */
     public function testSetUserAttributes()
     {
@@ -186,7 +186,7 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\AgentstartTransaction
+     * @covers \SobanVuex\NewRelic\Agent::startTransaction
      */
     public function testStartTransaction()
     {
