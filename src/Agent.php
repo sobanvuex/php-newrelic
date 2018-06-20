@@ -14,14 +14,14 @@ namespace SobanVuex\NewRelic;
 /**
  * OOP Wrapper for the New Relic PHP Agent.
  */
-class Agent
+final class Agent
 {
     /**
      * Extension status.
      *
      * @var bool
      */
-    protected $loaded;
+    private $loaded;
 
     /**
      * Instantiate the agent wrapper.

@@ -11,12 +11,13 @@
 
 namespace SobanVuex\NewRelic\Tests;
 
+use PHPUnit\Framework\TestCase;
 use SobanVuex\NewRelic\Agent;
 
 /**
  * @requires extension newrelic
  */
-class AgentTest extends \PHPUnit_Framework_TestCase
+final class AgentTest extends TestCase
 {
     protected $agent;
 
@@ -31,7 +32,7 @@ class AgentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::isLoaded
+     * @covers Agent::isLoaded
      */
     public function testIsLoaded()
     {
@@ -41,15 +42,15 @@ class AgentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::addCustomParameter
+     * @covers Agent::addCustomParameter
      */
     public function testAddCustomParameter()
     {
-        $this->assertExtensionMethod(__FUNCTION__);
+        $this->assertExtensionMethod(__FUNCTION__, '4.4.5.35');
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::addCustomTracer
+     * @covers Agent::addCustomTracer
      */
     public function testAddCustomTracer()
     {
@@ -57,7 +58,7 @@ class AgentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::backgroundJob
+     * @covers Agent::backgroundJob
      */
     public function testBackgroundJob()
     {
@@ -65,15 +66,15 @@ class AgentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::captureParams
+     * @covers Agent::captureParams
      */
     public function testCaptureParams()
     {
-        $this->assertExtensionMethod(__FUNCTION__, 2.1);
+        $this->assertExtensionMethod(__FUNCTION__);
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::customMetric
+     * @covers Agent::customMetric
      */
     public function testCustomMetric()
     {
@@ -81,31 +82,31 @@ class AgentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::disableAutorum
+     * @covers Agent::disableAutorum
      */
     public function testDisableAutorum()
     {
-        $this->assertExtensionMethod(__FUNCTION__);
+        $this->assertExtensionMethod(__FUNCTION__, '2.6.5.41');
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::endOfTransaction
+     * @covers Agent::endOfTransaction
      */
     public function testEndOfTransaction()
     {
-        $this->assertExtensionMethod(__FUNCTION__, 3.0);
-    }
-
-    /**
-     * @covers \SobanVuex\NewRelic\Agent::endTransaction
-     */
-    public function testEndTransaction()
-    {
         $this->assertExtensionMethod(__FUNCTION__);
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::getBrowserTimingFooter
+     * @covers Agent::endTransaction
+     */
+    public function testEndTransaction()
+    {
+        $this->assertExtensionMethod(__FUNCTION__, '3.0.5.95');
+    }
+
+    /**
+     * @covers Agent::getBrowserTimingFooter
      */
     public function testGetBrowserTimingFooter()
     {
@@ -113,7 +114,7 @@ class AgentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::getBrowserTimingHeader
+     * @covers Agent::getBrowserTimingHeader
      */
     public function testGetBrowserTimingHeader()
     {
@@ -121,15 +122,15 @@ class AgentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::ignoreApdex
+     * @covers Agent::ignoreApdex
      */
     public function testIgnoreApdex()
     {
-        $this->assertExtensionMethod(__FUNCTION__, 2.3);
+        $this->assertExtensionMethod(__FUNCTION__);
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::ignoreTransaction
+     * @covers Agent::ignoreTransaction
      */
     public function testIgnoreTransaction()
     {
@@ -137,7 +138,7 @@ class AgentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::nameTransaction
+     * @covers Agent::nameTransaction
      */
     public function testNameTransaction()
     {
@@ -145,23 +146,31 @@ class AgentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::noticeError
+     * @covers Agent::noticeError
      */
     public function testNoticeError()
     {
-        $this->assertExtensionMethod(__FUNCTION__, 2.6);
+        $this->assertExtensionMethod(__FUNCTION__, '2.6');
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::recordCustomEvent
+     * @covers Agent::recordCustomEvent
      */
     public function testRecordCustomEvent()
     {
-        $this->assertExtensionMethod(__FUNCTION__, 4.18);
+        $this->assertExtensionMethod(__FUNCTION__, '4.18.0.89');
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::setAppname
+     * @covers Agent::recordDatastoreSegment
+     */
+    public function testRecordDatastoreSegment()
+    {
+        $this->assertExtensionMethod(__FUNCTION__, '7.5.0.199');
+    }
+
+    /**
+     * @covers Agent::setAppname
      */
     public function testSetAppname()
     {
@@ -169,19 +178,19 @@ class AgentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::setUserAttributes
+     * @covers Agent::setUserAttributes
      */
     public function testSetUserAttributes()
     {
-        $this->assertExtensionMethod(__FUNCTION__, 3.1);
+        $this->assertExtensionMethod(__FUNCTION__, '3.1.5.111');
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::startTransaction
+     * @covers Agent::startTransaction
      */
     public function testStartTransaction()
     {
-        $this->assertExtensionMethod(__FUNCTION__, 3.0);
+        $this->assertExtensionMethod(__FUNCTION__, '3.0.5.95');
     }
 
     protected function parseMethodName($function)
