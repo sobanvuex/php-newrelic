@@ -6,14 +6,19 @@ php:
   - 7.2
 
 before_install:
+  - echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | sudo tee /etc/apt/sources.list.d/newrelic.list
+  - wget -O- https://download.newrelic.com/548C16BF.gpg | sudo apt-key add -
+  - sudo apt-get update
   - travis_retry composer self-update
 
 install:
+  - sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install newrelic-php5
+  - echo "extension=newrelic.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - travis_retry composer install --no-interaction --prefer-source
 
 script:
   - ./vendor/bin/phpcs -sp --standard=psr2 src
-  # - ./vendor/bin/phpunit --verbose --coverage-clover build/logs/clover.xml
+  - ./vendor/bin/phpunit --verbose --coverage-clover=coverage.clover
 
 after_script:
   # - wget https://scrutinizer-ci.com/ocular.phar
