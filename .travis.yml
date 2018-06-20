@@ -12,17 +12,18 @@ before_install:
   - travis_retry composer self-update
 
 install:
-  - sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install newrelic-php5
+  - sudo apt-get install newrelic-php5
   - sudo NR_INSTALL_SILENT=yes NR_INSTALL_PATH=$(dirname $(phpenv which php)) newrelic-install install
   - travis_retry composer install --no-interaction --prefer-source
 
 script:
+  - php -r "echo 'NewRelic Extension: ', phpversion('newrelic'), PHP_EOL;"
   - ./vendor/bin/phpcs -sp --standard=psr2 src
   - ./vendor/bin/phpunit --verbose --coverage-clover=coverage.clover
 
 after_script:
-  # - wget https://scrutinizer-ci.com/ocular.phar
-  # - php ocular.phar code-coverage:upload --format=php-clover build/coverage/log/coverage.xml
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
 notifications:
   email: false

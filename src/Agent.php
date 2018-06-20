@@ -219,9 +219,9 @@ final class Agent
      * @param bool $tags (optional) Defaults to true. If true or omitted, the string is enclosed in a <script>
      *                   element for easy inclusion in the page's HTML
      *
-     * @return string|null
+     * @return string
      */
-    public function getBrowserTimingFooter(bool $tags = true): ?string
+    public function getBrowserTimingFooter(bool $tags = true): string
     {
         if (!$this->isLoaded()) {
             return null;
@@ -242,12 +242,12 @@ final class Agent
      * @param bool $tags (optional) Defaults to true. If true or omitted, the string is enclosed in a <script>
      *                   element for easy inclusion in the page's HTML.
      *
-     * @return string|null
+     * @return string
      */
-    public function getBrowserTimingHeader(bool $tags = true): ?string
+    public function getBrowserTimingHeader(bool $tags = true): string
     {
         if (!$this->isLoaded()) {
-            return null;
+            return '';
         }
 
         return newrelic_get_browser_timing_header($tags);
