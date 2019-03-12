@@ -2,6 +2,11 @@ language: php
 
 php:
   - 7.2
+  - 7.3
+
+env:
+  - DEPENDENCIES=""
+  - DEPENDENCIES="--prefer-lowest --prefer-stable"
 
 before_install:
   - echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | sudo tee /etc/apt/sources.list.d/newrelic.list
@@ -12,11 +17,13 @@ before_install:
 install:
   - sudo apt-get -y install newrelic-php5
   - sudo NR_INSTALL_SILENT=yes NR_INSTALL_PATH=$(dirname $(phpenv which php)) newrelic-install install
-  - travis_retry composer install --no-interaction --prefer-source
+  - travis_retry composer update --no-interaction --prefer-dist $DEPENDENCIES
 
 script:
   - echo $(php -i | grep 'New Relic Version' | sed 's/ =>/:/')
   - vendor/bin/phpunit --verbose --coverage-clover=coverage.clover
+  - vendor/bin/phpstan analyse -l 7 -c phpstan.neon src tests
+
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar

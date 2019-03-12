@@ -30,6 +30,9 @@
         "php": "^7.2"
     },
     "require-dev": {
+        "phpstan/phpstan": "^0.11.3",
+        "phpstan/phpstan-phpunit": "^0.11.0",
+        "phpstan/phpstan-strict-rules": "^0.11.0",
         "phpunit/phpunit": "^8.0"
     },
     "suggest": {
