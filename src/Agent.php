@@ -95,7 +95,7 @@ final class Agent
             return false;
         }
 
-        return newrelic_accept_distributed_trace_payload_httpsafe($payload);
+        return newrelic_accept_distributed_trace_payload_httpsafe($payload, $type);
     }
 
     /**
