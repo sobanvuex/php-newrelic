@@ -22,7 +22,7 @@ install:
 script:
   - echo $(php -i | grep 'New Relic Version' | sed 's/ =>/:/')
   - vendor/bin/phpunit --verbose --coverage-clover=coverage.clover
-  - vendor/bin/phpstan analyse -l 7 -c phpstan.neon src tests
+  - vendor/bin/phpstan analyse src tests
 
 
 after_script:
