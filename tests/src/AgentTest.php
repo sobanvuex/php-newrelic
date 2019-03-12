@@ -21,12 +21,12 @@ final class AgentTest extends TestCase
 {
     protected $agent;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->agent = new Agent();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->agent = null;
     }
@@ -39,6 +39,22 @@ final class AgentTest extends TestCase
         $expected = extension_loaded('newrelic');
         $actual = $this->agent->isLoaded();
         $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @covers \SobanVuex\NewRelic\Agent::acceptDistributedTracePayload
+     */
+    public function testAcceptDistributedTracePayload()
+    {
+        $this->assertExtensionMethod(__FUNCTION__, '8.4');
+    }
+
+    /**
+     * @covers \SobanVuex\NewRelic\Agent::aptDistributedTracePayloadHttpsafe
+     */
+    public function testAptDistributedTracePayloadHttpsafe()
+    {
+        $this->assertExtensionMethod(__FUNCTION__, '8.4');
     }
 
     /**
@@ -69,6 +85,14 @@ final class AgentTest extends TestCase
      * @covers \SobanVuex\NewRelic\Agent::captureParams
      */
     public function testCaptureParams()
+    {
+        $this->assertExtensionMethod(__FUNCTION__);
+    }
+
+    /**
+     * @covers \SobanVuex\NewRelic\Agent::createDistributedTracePayload
+     */
+    public function testCreateDistributedTracePayload()
     {
         $this->assertExtensionMethod(__FUNCTION__);
     }

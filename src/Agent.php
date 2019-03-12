@@ -55,6 +55,50 @@ final class Agent
     }
 
     /**
+     * Accepts a distributed trace payload.
+     *
+     * Agent version 8.4 or higher.
+     *
+     * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicacceptdistributedtracepayload-php-agent-api
+     * @see self::createDistributedTracePayload
+     *
+     * @param string $payload JSON formatted string created by using Agent::addCustomParameter
+     *
+     * @since 2.1.0
+     */
+    public function acceptDistributedTracePayload(string $payload)
+    {
+        if ($this->isLoaded()) {
+            newrelic_accept_distributed_trace_payload($payload);
+        }
+    }
+
+
+    /**
+     * Accepts a distributed trace payload.
+     *
+     * Agent version 8.4 or higher.
+     *
+     * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelicacceptdistributedtracepayloadhttpsafe-php-agent-api
+     * @see self::createDistributedTracePayload
+     *
+     * @param string $payload JSON formatted string created by using self::createDistributedTracePayload
+     * @param string $type    (optional) A string overriding the default transport type.
+     *
+     * @return bool
+     *
+     * @since 2.1.0
+     */
+    public function acceptDistributedTracePayloadHttpsafe(string $payload, string $type = 'HTTP'): bool
+    {
+        if (!$this->isLoaded()) {
+            return false;
+        }
+
+        return newrelic_accept_distributed_trace_payload_httpsafe($payload);
+    }
+
+    /**
      * Attaches a custom attribute (key/value pair) to the current transaction.
      *
      * Agent version 4.4.5.35 or higher.
@@ -127,6 +171,25 @@ final class Agent
             newrelic_capture_params($enable);
         }
     }
+
+    /**
+     * Creates a distributed trace payload.
+     *
+     * Agent version 8.4 or higher.
+     *
+     * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newreliccreatedistributedtracepayload-php-agent-api
+     *
+     * @return \newrelic\DistributedTracePayload
+     *
+     * @since 2.1.0
+     */
+    public function createDistributedTracePayload(): ?\newrelic\DistributedTracePayload
+    {
+        if ($this->isLoaded()) {
+            return newrelic_create_distributed_trace_payload();
+        }
+    }
+
 
     /**
      * Add a custom metric (in milliseconds) to time a component of your app not captured by default.
@@ -309,7 +372,8 @@ final class Agent
      *
      * @see https://docs.newrelic.com/docs/agents/php-agent/php-agent-api/newrelic_notice_error
      *
-     * @param string|\Throwable|\Exception|int $message|$e|$e|$errno
+     * @param string|\Throwable|\Exception|int $message|$e|$e|$errno Provide an error message that will be meaningful
+     *                                                               to you when it displays in error traces.
      * @param \Throwable|\Exception|string     $e|$e|$errstr         (optional)
      * @param string                           $errfile              (optional)
      * @param int                              $errline              (optional)
@@ -354,7 +418,7 @@ final class Agent
      * @return mixed The return value of $callback is returned. If an error occurs, false is returned, and an error
      *               at the E_WARNING level will be triggered
      *
-     * @since 3.0.0
+     * @since 2.1.0
      */
     public function recordDatastoreSegment(callable $callback, array $parameters)
     {

@@ -1,8 +1,6 @@
 language: php
 
 php:
-  - 7.0
-  - 7.1
   - 7.2
 
 before_install:
@@ -18,8 +16,7 @@ install:
 
 script:
   - echo $(php -i | grep 'New Relic Version' | sed 's/ =>/:/')
-  - ./vendor/bin/phpcs -sp --standard=psr2 src
-  - ./vendor/bin/phpunit --verbose --coverage-clover=coverage.clover
+  - vendor/bin/phpunit --verbose --coverage-clover=coverage.clover
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
