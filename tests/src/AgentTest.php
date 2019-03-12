@@ -50,9 +50,9 @@ final class AgentTest extends TestCase
     }
 
     /**
-     * @covers \SobanVuex\NewRelic\Agent::aptDistributedTracePayloadHttpsafe
+     * @covers \SobanVuex\NewRelic\Agent::acceptDistributedTracePayloadHttpsafe
      */
-    public function testAptDistributedTracePayloadHttpsafe()
+    public function testAcceptDistributedTracePayloadHttpsafe()
     {
         $this->assertExtensionMethod(__FUNCTION__, '8.4');
     }
